@@ -2,14 +2,14 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-# Dados Iniciais
+# Dados Iniciais hgph
 x = 1
 n = 6
 u= math.exp(1)
 
 
 
-# Pré-alocação
+# Pré-alocaçãojkhlgukh
 
 soma = 0
 estimativa = []
