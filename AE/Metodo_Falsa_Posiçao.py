@@ -20,7 +20,7 @@ def f(x):
 
 
 while epest >= eppara:
-    xr = (xl + xu) / 2
+    xr = xu - f(xu) * (xl - xu) / f(xl) - f(xu)
     f_xl = f(xl)
     f_xr = f(xr)
 
