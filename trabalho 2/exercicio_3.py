@@ -11,7 +11,7 @@ eps_b = 0.045e-3  # m (aço comercial, 0.045 mm)
 
 i = 6
 eppara = 0.5 * (10 ** (2 - i))
-delta = 0.01
+delta = 0.000001
 
 # Reynolds
 Re = rho * V * D / mu
