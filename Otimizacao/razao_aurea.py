@@ -1,5 +1,4 @@
 import numpy as np
-import math
 import matplotlib.pyplot as plt
 
 def f(x):
@@ -12,7 +11,7 @@ xl = 0
 i = 6
 epara = 0.5 * (10 ** (2 - i))
 epest = 100
-
+xopt = (xl + xu) / 2
 
 while epest >= epara:
     d = (numero_ouro - 1)*(xu - xl)
@@ -25,6 +24,7 @@ while epest >= epara:
     else:
         xu = x1
         xopt = x2
-epest = (2 - numero_ouro) * abs((xu - xl) / xopt) * 100
 
-print(f"{xopt}")
+    epest = (2 - numero_ouro) * abs((xu - xl) / xopt) * 100
+
+print(f"xopt = {xopt:.6f} | f(xopt) = {f(xopt):.6f}")
