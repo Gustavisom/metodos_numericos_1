@@ -28,7 +28,7 @@ while epest >= epara:
     epest = (2 - numero_ouro) * abs((xu - xl) / xopt) * 100
 
 print(f"xopt = {xopt:.6f} ")
-x_plot = np.linspace(-1, 5, 1000)
+x_plot = np.linspace(-1, 6, 1000)
 
 plt.figure(figsize=(10, 5))
 plt.plot(x_plot, f(x_plot), color='black', lw=1.5, label=r'$f(x) = \frac{x^2}{10} - 2\sin(x)$')

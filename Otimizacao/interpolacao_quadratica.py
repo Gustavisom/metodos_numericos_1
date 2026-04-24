@@ -11,19 +11,23 @@ epest = 100
 x1 = 0
 x2 = 1
 x3 = 4
-x4_old = []
+iteracoes = 0
 
 while epest >= epara:
-    x4_new = (x1 + x2 + x3) / 3
-    x4_old.append(x4_new)
-    if f(x4_old) < f(x1):
+    num = f(x1)*(x2**2 - x3**2) + f(x2)*(x3**2 - x1**2) + f(x3)*(x1**2 - x2**2)
+    den = 2*(f(x1)*(x2 - x3) + f(x2)*(x3 - x1) + f(x3)*(x1 - x2))
+    x4 = num / den
+
+    if iteracoes > 0:
+        epest = abs((x4 - x4_ant) / x4) * 100
+
+    if f(x4) < f(x2):
         x1 = x2
-        x2 = x4_old
+        x2 = x4
     else:
-        x3 = x4_old
-        x4_new = x4_old[-1]
+        x3 = x4
 
-    epest = abs((x4_new - x4_old[-2]) / x4_new) * 100
-x4_old = x4_new
+    x4_ant = x4
+    iteracoes += 1
 
-print(f"x4 = {x4_new:.6f}")
+print(f"xopt = {x4:.6f}")
