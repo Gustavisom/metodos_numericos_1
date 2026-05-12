@@ -1,12 +1,12 @@
 import numpy as np
 
-A = np.array([[2, 4, -6],
-              [4, 2, 2],
-              [2, 8, -4]])
+A = np.array([[3, -0.1, -0.2],
+              [0.1, 7, -0.3],
+              [0.3, -0.2, 10]])
 
-b = np.array([[10],
-              [16], 
-              [24]])
+b = np.array([[7.85],
+              [-19.3], 
+              [71.4]])
 
 aum = np.hstack((A, b)) # matriz aumentada
 
