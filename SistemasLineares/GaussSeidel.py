@@ -1,31 +1,27 @@
-import numpy as np 
+import numpy as np
 
 A = np.array([[3, -0.1, -0.2],
               [0.1, 7, -0.3],
               [0.3, -0.2, 10]])
 
-b = np.array([[7.85],
-              [-19.3], 
-              [71.4]])
+b = np.array([7.85, -19.3, 71.4])
 
-
-xold = np.zeros(len(b))
 n = len(b)
+xold = np.ones(n) * 100
 eppara = 0.5 * (10 ** (2 - 6))
-xnew = np.zeros(len(b))
-
-epest = abs((xnew - xold) / xnew) * 100
+xnew = np.zeros(n)
+epest = np.ones(n) * 100
 
 while max(epest) >= eppara:
     for i in range(n):
         soma = 0
-        for j in range(i):
+        for j in range(n):
             if j < i:
-                soma += A[i,j]*xnew[j]
-            soma += A[i,j]*xnew[j]
-        xnew[i] = (b[i] - soma) / A[i,i]
-    epest = abs((xnew - xold) / xnew) * 100
-    xold = xnew
+                soma += A[i, j] * xnew[j]
+        xnew[i] = (b[i] - soma) / A[i, i]
 
-print("A solução é: ", xnew)
+    epest = abs((xnew - xold) / xnew) * 100
+    xold = xnew.copy()
+
+print("Solução:", xnew)
 
