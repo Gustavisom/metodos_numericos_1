@@ -1,10 +1,11 @@
 import numpy as np
 
-A = np.array([[4, 2, 2],
-              [2, 8, -4],
-              [2, 4, -6]])
+A = np.array([[2, 4, -6],
+              [4, 2, 2],
+              [2, 8, -4]])
 
-b = np.array([16, 24, 10])
+b = np.array([10, 16, 24])
+
 
 k = 0
 n = len(b)
@@ -13,6 +14,10 @@ eppara = 0.5 * (10 ** (2 - 6))
 xnew = np.zeros(n)
 epest = np.ones(n) * 100
 maxit = 100
+
+relaxamento = 0.5
+
+
 
 while max(epest) >= eppara and k < maxit:
     for i in range(n):
@@ -24,6 +29,9 @@ while max(epest) >= eppara and k < maxit:
             elif j > i:
                 soma2 += A[i, j] * xold[j]
         xnew[i] = (b[i] - soma1 - soma2) / A[i, i]
+       
+        xnew = relaxamento * xnew + (1 - relaxamento) * xold
+
 
     epest = np.abs((xnew - xold) / xnew) * 100
     xold = xnew.copy()
