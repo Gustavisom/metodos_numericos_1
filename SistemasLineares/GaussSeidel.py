@@ -4,29 +4,28 @@ A = np.array([[4, 2, 2],
               [2, 8, -4],
               [2, 4, -6]])
 
-b = np.array([16, 24, 10])
+b = np.array([[7.85],
+              [-19.3], 
+              [71.4]])
 
-k = 0
+
+xold = np.zeros(len(b))
 n = len(b)
-xold = np.zeros(n)
 eppara = 0.5 * (10 ** (2 - 6))
-xnew = np.zeros(n)
-epest = np.ones(n) * 100
-maxit = 100
+xnew = np.zeros(len(b))
 
-while max(epest) >= eppara and k < maxit:
+epest = abs((xnew - xold) / xnew) * 100
+
+while max(epest) >= eppara:
     for i in range(n):
-        soma1 = 0
-        soma2 = 0
-        for j in range(n):
+        soma = 0
+        for j in range(i):
             if j < i:
-                soma1 += A[i, j] * xnew[j]
-            elif j > i:
-                soma2 += A[i, j] * xold[j]
-        xnew[i] = (b[i] - soma1 - soma2) / A[i, i]
+                soma += A[i,j]*xnew[j]
+            soma += A[i,j]*xnew[j]
+        xnew[i] = (b[i] - soma) / A[i,i]
+    epest = abs((xnew - xold) / xnew) * 100
+    xold = xnew
 
-    epest = np.abs((xnew - xold) / xnew) * 100
-    xold = xnew.copy()
-    k += 1
+print("A solução é: ", xnew)
 
-print("Solução:", xnew)
