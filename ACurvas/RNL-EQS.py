@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 import math
 import pandas as pd
 
-# dados de entrada
 date = {
-    'x': [0, 2, 4, 6, 9, 11, 12, 15, 17, 19],
-    'y': [5, 6, 7, 8, 9, 10, 10, 11, 12, 12]
+    'x': np.log10([10, 20, 30, 40, 50, 60, 70, 80]),
+    'y': np.log10([25, 70, 380, 550, 610, 1220, 830, 1450])
 }
 
 df = pd.DataFrame(date)
@@ -32,8 +31,8 @@ ai = np.linalg.solve(A,b)
 plt.plot(df['x'], df['y'], 'or', label= 'Dados de entrada')
 plt.plot(df['x'], ai[0] + ai[1] * df['x'], '-b', label = 'Ajuste Linear')
 plt.legend()
-plt.xlabel('x')
-plt.ylabel('y')
+plt.xlabel('ln(x')
+plt.ylabel('ln(y)')
 plt.show()
 
 # calculos adicionais

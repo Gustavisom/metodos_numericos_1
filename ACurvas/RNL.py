@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 import math
 import pandas as pd
 
-# dados de entrada
+
 date = {
-    'x': [0, 2, 4, 6, 9, 11, 12, 15, 17, 19],
-    'y': [5, 6, 7, 8, 9, 10, 10, 11, 12, 12]
+    'x': [0.4, 0.8, 1.2, 1.6, 2.0, 2.6],
+    'y': np.log([800, 985, 1490, 1950, 2850, 3600])
 }
 
 df = pd.DataFrame(date)
@@ -33,7 +33,7 @@ plt.plot(df['x'], df['y'], 'or', label= 'Dados de entrada')
 plt.plot(df['x'], ai[0] + ai[1] * df['x'], '-b', label = 'Ajuste Linear')
 plt.legend()
 plt.xlabel('x')
-plt.ylabel('y')
+plt.ylabel('ln(y)')
 plt.show()
 
 # calculos adicionais

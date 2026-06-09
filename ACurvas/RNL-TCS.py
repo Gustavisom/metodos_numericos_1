@@ -3,10 +3,9 @@ import matplotlib.pyplot as plt
 import math
 import pandas as pd
 
-# dados de entrada
 date = {
-    'x': [0, 2, 4, 6, 9, 11, 12, 15, 17, 19],
-    'y': [5, 6, 7, 8, 9, 10, 10, 11, 12, 12]
+    'x': 1/np.array([1, 2, 3, 5, 10, 20, 30, 40, 50]),
+    'y': 1/np.array([0.07, 0.13, 0.22, 0.275, 0.4, 0.6, 0.7, 0.75, 0.78])
 }
 
 df = pd.DataFrame(date)
